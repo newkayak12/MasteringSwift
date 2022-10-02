@@ -1,24 +1,3 @@
-//
-//  Copyright (c) 2018 KxCoding <kky0317@gmail.com>
-//
-//  Permission is hereby granted, free of charge, to any person obtaining a copy
-//  of this software and associated documentation files (the "Software"), to deal
-//  in the Software without restriction, including without limitation the rights
-//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-//  copies of the Software, and to permit persons to whom the Software is
-//  furnished to do so, subject to the following conditions:
-//
-//  The above copyright notice and this permission notice shall be included in
-//  all copies or substantial portions of the Software.
-//
-//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-//  THE SOFTWARE.
-//
 import UIKit
 
 //: [Previous](@previous)
@@ -28,5 +7,28 @@ import UIKit
  
  ## Syntax
  ![Constants Syntax](syntax-let.png)
+ */
+
+let name: String = "Swift";
+name;
+print(name, "\n------\n");
+
+//name = "RxSwift"; // error build: Cannot assign to value: 'name' is a 'let' constant
+
+
+/*:
+ # Naming Conventions
+ 
+ ##CamelCase
+ 
+ ### 1. UpperCamelCase
+    -> 첫문자 대문자, 이름에 여러 단어가 있다면 각 문자의 첫번째 글자 == 대문자.
+    -> Class, Structure, Enumeration, Extension, Protocol
+ 
+ ### 2. lowerCamelCase
+    -> 첫문자 소문자, 이름에 여러 단어가 있다면 각 문자의 첫번째 글자 == 대문자.
+    -> Variable, Constatnt, Function, Method, Property, Parameter
+ 
+
  */
 
