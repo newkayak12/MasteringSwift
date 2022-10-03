@@ -1,24 +1,4 @@
-//
-//  Copyright (c) 2018 KxCoding <kky0317@gmail.com>
-//
-//  Permission is hereby granted, free of charge, to any person obtaining a copy
-//  of this software and associated documentation files (the "Software"), to deal
-//  in the Software without restriction, including without limitation the rights
-//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-//  copies of the Software, and to permit persons to whom the Software is
-//  furnished to do so, subject to the following conditions:
-//
-//  The above copyright notice and this permission notice shall be included in
-//  all copies or substantial portions of the Software.
-//
-//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-//  THE SOFTWARE.
-//
+
 //: [Previous](@previous)
 
 import Foundation
@@ -35,6 +15,12 @@ import Foundation
  ````
  */
 
+var a: Int = 1;
+var b: Int = 2;
+a = a + b;
+a = 1;
+b = 2;
+a += b;
 
 
 /*:
@@ -44,6 +30,12 @@ import Foundation
  a = a - b
  ````
  */
+var c: Int = 1;
+var d: Int = 2;
+c = c - d;
+c = 1;
+d = 2;
+c -= d;
 
 
 
@@ -54,6 +46,12 @@ import Foundation
  a = a * b
  ````
  */
+var e: Int = 1;
+var f: Int = 2;
+e = e * f;
+e = 1;
+f = 2;
+e *= f;
 
 
 
@@ -64,7 +62,12 @@ import Foundation
  a = a / b
  ````
  */
-
+var g: Int = 4;
+var h: Int = 2;
+g = g / h;
+g = 1;
+h = 2;
+g /= h;
 
 
 /*:
@@ -75,6 +78,12 @@ import Foundation
  ````
  */
 
+var i: Int = 4;
+var j: Int = 2;
+i = i % j;
+i = 1;
+j = 2;
+i %= j;
 
 /*:
  ## Bitwise AND Assignment Operator
@@ -83,8 +92,11 @@ import Foundation
  a = a & b
  ````
  */
-
-
+var k: UInt8 = 0b1111_1111;
+var l: UInt8 = 0b0000_0001;
+k = k & l
+k = 0b1111_1111;
+k &= l;
 
 /*:
  ## Bitwise OR Assignment Operator
@@ -93,9 +105,11 @@ import Foundation
  a = a | b
  ````
  */
-
-
-
+var m: UInt8 = 0b1111_1111;
+var n: UInt8 = 0b0000_0001;
+m = m | n;
+m = 0b1111_1111;
+m |= n;
 /*:
  ## Bitwise XOR Assignment Operator
  ````
@@ -103,9 +117,11 @@ import Foundation
  a = a ^ b
  ````
  */
-
-
-
+var o: UInt8 = 0b1111_1111;
+var p: UInt8 = 0b0000_0001;
+o = o ^ p;
+o = 0b1111_1111;
+o ^= p;
 /*:
  ## Bitwise Left Shift Assignment Operator
  ````
@@ -113,9 +129,11 @@ import Foundation
  a = a << b
  ````
  */
-
-
-
+var q: UInt8 = 0b1111_1111;
+var r: UInt8 = 0b0000_0001;
+q = q << r;
+q = 0b1111_1111;
+q <<= r;
 /*:
  ## Bitwise Right Shift Assignment Operator
  ````
@@ -123,10 +141,11 @@ import Foundation
  a = a >> b
  ````
  */
-
-
-
-
+var s: UInt8 = 0b1111_1111;
+var t: UInt8 = 0b0000_0001;
+s = s >> t;
+s = 0b1111_1111;
+s >>= t;
 
 
 

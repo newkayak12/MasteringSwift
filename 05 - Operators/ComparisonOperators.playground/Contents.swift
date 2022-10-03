@@ -1,30 +1,11 @@
-//
-//  Copyright (c) 2018 KxCoding <kky0317@gmail.com>
-//
-//  Permission is hereby granted, free of charge, to any person obtaining a copy
-//  of this software and associated documentation files (the "Software"), to deal
-//  in the Software without restriction, including without limitation the rights
-//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-//  copies of the Software, and to permit persons to whom the Software is
-//  furnished to do so, subject to the following conditions:
-//
-//  The above copyright notice and this permission notice shall be included in
-//  all copies or substantial portions of the Software.
-//
-//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-//  THE SOFTWARE.
-//
 import UIKit
 
 /*:
  # Comparison Operators
  */
-
+//비교한 조건이 맞다면 true 혹은 false == Bool
+let a = 12;
+let b = 34;
 
 /*:
  ## Equal to Operator
@@ -33,8 +14,12 @@ import UIKit
  ````
  */
 
+a == b;
+"swift" == "Swift"
 
-
+let c = 12.34
+//a == c;//같은 자료형만 비교할 수 있다.
+//Binary operator '==' cannot be applied to operands of type 'Int' and 'Double'
 /*:
  ## Not equal to Operator
  ````
@@ -42,7 +27,7 @@ import UIKit
  ````
  */
 
-
+a != b;
 
 /*:
  ## Greater than Operator
@@ -51,8 +36,11 @@ import UIKit
  ````
  */
 
+a > b;
+b > a;
 
-
+"swift" > "Swift";
+//ASCII CODE를 비교
 /*:
  ## Greater than or equal to Operator
  ````
@@ -60,7 +48,8 @@ import UIKit
  ````
  */
 
-
+a >= b;
+a <= b;
 
 /*:
  ## Less than Operator
@@ -69,7 +58,8 @@ import UIKit
  ````
  */
 
-
+a < b;
+b < a;
 
 /*:
  ## Less than or equal to Operator
@@ -77,7 +67,8 @@ import UIKit
  a <= b
  ````
  */
-
+a <= b;
+b <= a;
 
 
 
