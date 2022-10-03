@@ -1,29 +1,24 @@
-//
-//  Copyright (c) 2018 KxCoding <kky0317@gmail.com>
-//
-//  Permission is hereby granted, free of charge, to any person obtaining a copy
-//  of this software and associated documentation files (the "Software"), to deal
-//  in the Software without restriction, including without limitation the rights
-//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-//  copies of the Software, and to permit persons to whom the Software is
-//  furnished to do so, subject to the following conditions:
-//
-//  The above copyright notice and this permission notice shall be included in
-//  all copies or substantial portions of the Software.
-//
-//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-//  THE SOFTWARE.
-//
 import UIKit
 
 /*:
  # Number Literals
  */
+// -> 양수 +를 붙이면 된다. 물론 생략할 수 있다.
+1234
+// -> 음수 -를 붙인다. 생략할 수 없다.
+-1234
+// 1.23e4와 같이 십진수 지수 실수를 사용할 수 있다.
+1.423e19
+// 0xAp2 16인수는 p 다음 지수를 사용하면 된다.
+0xFp4
+// 1_000_000와 같이 ','을 _로 사용하면 된다.
+20_000_000
+// 2진수는 0b를 접두어로 사용한다.
+0b1010
+// 8진수는 0o를 접두어로 사용한다.
+0o12
+// 16진수는 0x를 접두어로 사용한다.
+0xFFFF
 
 
 //: [Next](@next)

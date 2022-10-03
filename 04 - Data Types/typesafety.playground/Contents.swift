@@ -1,24 +1,3 @@
-//
-//  Copyright (c) 2018 KxCoding <kky0317@gmail.com>
-//
-//  Permission is hereby granted, free of charge, to any person obtaining a copy
-//  of this software and associated documentation files (the "Software"), to deal
-//  in the Software without restriction, including without limitation the rights
-//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-//  copies of the Software, and to permit persons to whom the Software is
-//  furnished to do so, subject to the following conditions:
-//
-//  The above copyright notice and this permission notice shall be included in
-//  all copies or substantial portions of the Software.
-//
-//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-//  THE SOFTWARE.
-//
 import UIKit
 
 /*:
@@ -26,8 +5,33 @@ import UIKit
  */
 
 
+//값을 잘못된 방식으로 사용하는 것을 방지하기 위한
+//let str: String = 1234 //와 같은 것은 사용 할 수 없음
+//let num: Int = 1.234 //수를 저장하는 것도 안된다.
+let a = 8
+//let b: Int8 = a // 이것도 호환되지 않는다. (메모리 크기 차이로 값이 유실됨)
 
+let b = a //가능
+//let c: Int64 = a //불가능
 
+//물론 타입 변환하면 가능함
+
+let z = 12
+let x = 3.4151234
+//let result = z + x //이것도 안됨..
+
+//let rate: Int = 1.94 //C 계열은 1로 저장하지만 스위프트는 조금 더 엄격함
+let rate = 1.94
+let amt = 10_000_000
+//let reuslt = rate * amt; //Double * Int라서 오류
+//두 값의 자료형을 일치 시켜야 한다.
+
+let result = rate * Double(amt)
+type(of: result)
+//Int로 받고 싶다면??
+
+let result1 = Int(rate * Double(amt))
+let result2 = Int(rate) * amt
 
 
 

@@ -1,25 +1,3 @@
-//
-//  Copyright (c) 2018 KxCoding <kky0317@gmail.com>
-//
-//  Permission is hereby granted, free of charge, to any person obtaining a copy
-//  of this software and associated documentation files (the "Software"), to deal
-//  in the Software without restriction, including without limitation the rights
-//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-//  copies of the Software, and to permit persons to whom the Software is
-//  furnished to do so, subject to the following conditions:
-//
-//  The above copyright notice and this permission notice shall be included in
-//  all copies or substantial portions of the Software.
-//
-//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-//  THE SOFTWARE.
-//
-
 import UIKit
 
 /*:
@@ -30,8 +8,28 @@ import UIKit
  */
 
 
+// Type Conversion : 형변환 -> 메모리에 저장된 값을 다른 형식으로 바꿔서 새로운 값으로
+// Type Casting : 형변환?? -> 컴파일러 선에서 다른 타입으로 처리하도록 시킴
 
+let a = 123 //Int
+let b = 4.23 //Double
 
+//a + b//  역시 안됌
+// a를 Double  혹은 b를 Int로
+Double(a) + b //1234.0 + 4.23
+a + Int(b) //1234 + 4
+
+let c: Int8 = Int8(a)
+
+let d = Int.max
+//let e = Int8(d) //Not enough bits to represent the passed value
+
+let str: String = "123"
+let num = Int(str)
+
+let str2: String = "number"
+let num2 = Int(str2)
+//??!! typeConversion에서 nil이 출력될 수 있다.
 
 
 

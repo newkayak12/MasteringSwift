@@ -1,33 +1,27 @@
-//
-//  Copyright (c) 2018 KxCoding <kky0317@gmail.com>
-//
-//  Permission is hereby granted, free of charge, to any person obtaining a copy
-//  of this software and associated documentation files (the "Software"), to deal
-//  in the Software without restriction, including without limitation the rights
-//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-//  copies of the Software, and to permit persons to whom the Software is
-//  furnished to do so, subject to the following conditions:
-//
-//  The above copyright notice and this permission notice shall be included in
-//  all copies or substantial portions of the Software.
-//
-//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-//  THE SOFTWARE.
-//
 import UIKit
 
 /*:
  # Type Inference
  */
 
+let num = 1234
+//-> Int
+type(of: num)
+//어떻게 Int로 설정되는가?
+//-> 초기 값으로 추론하여 타입 지정 (타입 추론)
+
+let temp = 12.1
+type(of: temp)
+
+let str = "swfit"
+type(of: str)
+
+let booleanA = true
+let booleanB = false
+type(of: booleanA)
+type(of: booleanB)
 
 
-
-
-
+//let value //Type annotation missing in pattern
+//  메모리 공간을 할당해야하는데, 자료형이 선언되지 않았다. -> 초기 값으로 추론하려했는데, 초기 값이 없다. -> 뭐임?
 //: [Next](@next)

@@ -1,25 +1,3 @@
-//
-//  Copyright (c) 2018 KxCoding <kky0317@gmail.com>
-//
-//  Permission is hereby granted, free of charge, to any person obtaining a copy
-//  of this software and associated documentation files (the "Software"), to deal
-//  in the Software without restriction, including without limitation the rights
-//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-//  copies of the Software, and to permit persons to whom the Software is
-//  furnished to do so, subject to the following conditions:
-//
-//  The above copyright notice and this permission notice shall be included in
-//  all copies or substantial portions of the Software.
-//
-//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-//  THE SOFTWARE.
-//
-
 import UIKit
 
 //: [Previous](@previous)
@@ -28,7 +6,12 @@ import UIKit
  
  ![IntegerTypes](integer-types.png)
  */
-
+// Int 뒤는 비트이다.
+//Int8의 최소/ 최대는 -128 ~ 127 이 사이의 숫자를 저장할 수 있다.
+print(Int8.min, Int8.max);
+// 저장할 수 있는 사이즈는 1byte이다.
+print(MemoryLayout<Int8>.size)
+print(MemoryLayout<Int64>.size) //8바이트
 
 
 
@@ -38,13 +21,22 @@ import UIKit
  ![SignedUnsigned](signed-unsigned.png)
  */
 
-
-
+//Signed는 +,-가 있는
+//UnSigned는 양수만 저장하는 타입이다.
+// 이 둘은 메모리 공간 크기는 같으나 저장할 수 있는 수의 범위가 다르다.
+print(Int8.min, Int8.max)
+print(UInt8.min, UInt8.max)
+//
 
 /*:
  ## Int & UInt
  */
+MemoryLayout<Int>.size //CPU가 32/64비트냐에 따라 달라진다.
+Int.min
+Int.max
 
-
-
+let num = 1234
+//이와 같이 사용하면 타입 추정으로 Int로 저장
+let num2: Int = 1234
+//이와 같이 명시할 수도 있다.
 //: [Next](@next)
