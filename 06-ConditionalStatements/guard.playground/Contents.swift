@@ -1,24 +1,3 @@
-//
-//  Copyright (c) 2018 KxCoding <kky0317@gmail.com>
-//
-//  Permission is hereby granted, free of charge, to any person obtaining a copy
-//  of this software and associated documentation files (the "Software"), to deal
-//  in the Software without restriction, including without limitation the rights
-//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-//  copies of the Software, and to permit persons to whom the Software is
-//  furnished to do so, subject to the following conditions:
-//
-//  The above copyright notice and this permission notice shall be included in
-//  all copies or substantial portions of the Software.
-//
-//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-//  THE SOFTWARE.
-//
 import UIKit
 
 /*:
@@ -28,15 +7,49 @@ import UIKit
  */
 
 
+/**
+ Ealry Exit : 원하는 조건이 충족되면 아래의 코드는 실행하지 않고 종료 _ continue??
+ guard에서는 else가 없으면 안된다.
+ guard 안에서는 실행을 종료시켜야 한다.
+ */
+
+func validate(id: String?) -> Bool {
+//    guard let id = id  /*optionalBinding..*/ else {
+//        return false
+//    }
+//    guard id.count >= 6 else {
+//        return false
+//    }
+    guard let id = id, id.count >= 6 else { //이렇게도 사용 가능하다.
+        return false
+    }
+    return true;
+}
+
+validate(id: nil)
+validate(id: "root")
+validate(id: "sljflkdksldkj")
 
 
 
+//if vs guard
+func validIf(){
+    var id: String? = nil;
+    if let str = id { //optionalBinding
+        if str.count >= 6 {
+            print(str)
+        }
+    }
+}
+func validGuard() {
+    var id: String? = nil
+    guard let str = id else { return } //guard body must not fall through
+    guard str.count >= 6 else { return }
+    print(str)
+}
 
-
-
-
-
-
+validIf()
+validGuard()
 
 
 

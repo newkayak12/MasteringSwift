@@ -1,24 +1,3 @@
-//
-//  Copyright (c) 2018 KxCoding <kky0317@gmail.com>
-//
-//  Permission is hereby granted, free of charge, to any person obtaining a copy
-//  of this software and associated documentation files (the "Software"), to deal
-//  in the Software without restriction, including without limitation the rights
-//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-//  copies of the Software, and to permit persons to whom the Software is
-//  furnished to do so, subject to the following conditions:
-//
-//  The above copyright notice and this permission notice shall be included in
-//  all copies or substantial portions of the Software.
-//
-//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-//  THE SOFTWARE.
-//
 import UIKit
 
 /*:
@@ -29,8 +8,41 @@ import UIKit
 
 
 
-
-
+/**
+ 매칭 시킬 값이 아닌 바인딩할 이름이 따라온다.
+ 매칭 시킬 대상을 상수,변수로 바인딩하고 사용하는
+ */
+let a = 1
+switch a {
+    case let x where x > 2:
+        print(x)
+    case let y where y > 1:
+        print(y)
+    case let z where z > 0:
+        print(z)
+    default:
+        break;
+}
+/**
+ 이와 같이 변수 바인딩은 where와 주로 사용된다.
+ case block 안에서 값을 바꿔야한다면 변수로 바인딩하면 된다.
+ 
+ 
+ valueBinding은 Tuple 매칭에서도 사용된다.
+ */
+let pt = (1,2)
+print(pt)
+switch pt {
+    case var (x,y):
+        print(x*2,y+1)
+    case (let a, var b) :
+        print(a, b)
+    case let (y,_):
+        print(y)
+        //이와 같이 필요 없는 경우 와일드 카드로 매핑할 수도 있다.
+    default:
+        break;
+}
 
 
 

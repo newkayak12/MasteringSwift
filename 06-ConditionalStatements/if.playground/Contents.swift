@@ -1,24 +1,3 @@
-//
-//  Copyright (c) 2018 KxCoding <kky0317@gmail.com>
-//
-//  Permission is hereby granted, free of charge, to any person obtaining a copy
-//  of this software and associated documentation files (the "Software"), to deal
-//  in the Software without restriction, including without limitation the rights
-//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-//  copies of the Software, and to permit persons to whom the Software is
-//  furnished to do so, subject to the following conditions:
-//
-//  The above copyright notice and this permission notice shall be included in
-//  all copies or substantial portions of the Software.
-//
-//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-//  THE SOFTWARE.
-//
 import UIKit
 
 /*:
@@ -27,29 +6,86 @@ import UIKit
  ![if](if.png)
  */
 
-
+var id: String = "root";
+var password: String = "1234";
 
 /*:
  ## Syntax
  ![if-else](if-else.png)
  */
 
+if ( id == "root" ) {
+    print("valid Id")
+}
 
 
+if ( password == "1234" ) {
+    print("validPw")
+}
 
+//Condition을 괄호로 안 감싸는 형태로 주로 사용한다고는 한다.
+// if키워드와 '{'의 시작을 같은 라인에 두는게 기본 컨벤션
+
+if( (id == "root") && (password == "1234") ) {
+    print("login")
+}
 
 /*:
  ## Syntax
  ![if-elseif-else](if-elseif-else.png)
  */
+id = "root"
+password = "14"
+if( id == "root" && password == "1234" ){
+    print("login")
+} else if ( id == "root" && !(password == "1234") ){
+    print("invalid pw")
+} else if (password == "1234" && !(id == "root") ){
+    print("invalid id")
+} else {
+    print("invalid!")
+}
 
 
+let num: Int = -2
+if num >= 0 {
+    print("positive number or zero")
+} else if num > 0 && num % 2 == 0 {
+    print("positive even number")
+} else if num > 0 && num % 2 == 1 {
+    print("positive odd number")
+} else {
+    print("negative")
+}
 
+if num >= 0 {
+    print("positive number or zero")
+    if num % 2 == 0 {
+        print("positive even number")
+    } else if num % 2 == 1 {
+        print("positive odd number")
+    }
+} else {
+    print("negative")
+}
 
+let num2: Int = 500
+if num2 > 0 {
+    print("positive")
+} else if num > 10 {
+    print("> 10")
+} else if num > 100 {
+    print(" > 100")
+}
+// positive 만 실행하고 if 블록 나옴 // Java와 같음
 
-
-
-
+if num2 > 100 {
+    print(" > 100")
+} else if num > 10 {
+    print("> 10")
+} else if num > 0 {
+    print("positive")
+}
 
 
 
