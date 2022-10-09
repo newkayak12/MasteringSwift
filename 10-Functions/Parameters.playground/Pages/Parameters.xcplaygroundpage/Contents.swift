@@ -1,24 +1,3 @@
-//
-//  Copyright (c) 2018 KxCoding <kky0317@gmail.com>
-//
-//  Permission is hereby granted, free of charge, to any person obtaining a copy
-//  of this software and associated documentation files (the "Software"), to deal
-//  in the Software without restriction, including without limitation the rights
-//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-//  copies of the Software, and to permit persons to whom the Software is
-//  furnished to do so, subject to the following conditions:
-//
-//  The above copyright notice and this permission notice shall be included in
-//  all copies or substantial portions of the Software.
-//
-//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-//  THE SOFTWARE.
-//
 import UIKit
 
 /*:
@@ -27,62 +6,31 @@ import UIKit
  ![param](param.png)
  */
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+func add(left: Int, right: Int) -> Int {
+//    left = 12 //constant
+    left + right
+}
 
 /*:
  ## Calling Functions
  ![call](call.png)
  */
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+add(left: 1, right: 2)
 
 /*:
  ## Default Value
  ![defval](defval.png)
  */
 
+func sayHello(to: String = "Swift"){
+    print("Hello, \(to)")
+}
 
+sayHello()
+sayHello(to:"Stranger")
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/**
+ 파라미터의 scope : 함수 body
+ lifecycle 역시 같다. 함수가 시작되면 파라미터가 만들어지고 함수가 종료되면 삭제된다.
+ */

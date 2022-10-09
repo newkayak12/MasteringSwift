@@ -1,42 +1,11 @@
-//
-//  Copyright (c) 2018 KxCoding <kky0317@gmail.com>
-//
-//  Permission is hereby granted, free of charge, to any person obtaining a copy
-//  of this software and associated documentation files (the "Software"), to deal
-//  in the Software without restriction, including without limitation the rights
-//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-//  copies of the Software, and to permit persons to whom the Software is
-//  furnished to do so, subject to the following conditions:
-//
-//  The above copyright notice and this permission notice shall be included in
-//  all copies or substantial portions of the Software.
-//
-//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-//  THE SOFTWARE.
-//
 import Foundation
 
 /*:
  # Optional Binding
  */
 
-
-
-
-
-
-
-
-
-
-
-
-
+var num: Int? = nil;
+//print(num!)
 
 /*:
  ## Syntax
@@ -44,10 +13,37 @@ import Foundation
  */
 
 
+if num != nil {
+    print(num!)
+} else {
+    print("empty")
+}
+
+if let num = num {//Optional 바인딩에서는 optional과 같은 변수명으로 선언해도 문제가 되지 않을 수 밖에... scope가 다름
+    print(num)//Int
+} else {
+    print("empty")
+}
 
 
 
+var str: String? = "str";
+guard let str = str else { fatalError() }
+str
 
+num = 123
+if var num = num {
+    num = 1234234
+    num
+}
+
+let a: Int? = 12
+let b: String? = "str"
+
+if let num = a, let str = b, str.count > 5 {
+    //모든 바인딩이 성공하면 실행  / 조건도 추가 가능 
+    print(num, str)
+}
 
 
 
