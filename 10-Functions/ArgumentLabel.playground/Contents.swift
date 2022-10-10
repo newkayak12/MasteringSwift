@@ -1,24 +1,3 @@
-//
-//  Copyright (c) 2018 KxCoding <kky0317@gmail.com>
-//
-//  Permission is hereby granted, free of charge, to any person obtaining a copy
-//  of this software and associated documentation files (the "Software"), to deal
-//  in the Software without restriction, including without limitation the rights
-//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-//  copies of the Software, and to permit persons to whom the Software is
-//  furnished to do so, subject to the following conditions:
-//
-//  The above copyright notice and this permission notice shall be included in
-//  all copies or substantial portions of the Software.
-//
-//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-//  THE SOFTWARE.
-//
 import UIKit
 
 /*:
@@ -30,15 +9,7 @@ func sayHello(name: String) {
 }
 
 sayHello(name: "Swift")
-
-
-
-
-
-
-
-
-
+        //name == argumentLabel
 
 /*:
  ## Syntax
@@ -46,4 +17,25 @@ sayHello(name: "Swift")
  ![arg2](arg2.png)
  */
 
+/**
+ argumentLabel을 사용하는 이유는 가독성을 위해서
+ */
 
+func sayHello2(name: String) {
+   print("Hello, \(name)")
+}
+sayHello2(name: "Swift")
+
+func sayHello2(to name: String){  //argument label이 있어서 같은 함수가 아니므로 컴파일 에러가 없음
+    print("Hello, \(name)") //argument label은 함수를 호출하기 위한 요소
+    //print에서는 argumentLabel을 생략한 것
+}
+sayHello2(to: "Swift")
+
+func sayHello2(_ name: String){
+    print("Hello, \(name)")
+}
+sayHello2("Swift")
+/**
+ argumentLabel은 전치사 parameterName은 명사로 주로 설정한다.
+ */
