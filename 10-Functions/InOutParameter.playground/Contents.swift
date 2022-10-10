@@ -1,44 +1,20 @@
-//
-//  Copyright (c) 2018 KxCoding <kky0317@gmail.com>
-//
-//  Permission is hereby granted, free of charge, to any person obtaining a copy
-//  of this software and associated documentation files (the "Software"), to deal
-//  in the Software without restriction, including without limitation the rights
-//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-//  copies of the Software, and to permit persons to whom the Software is
-//  furnished to do so, subject to the following conditions:
-//
-//  The above copyright notice and this permission notice shall be included in
-//  all copies or substantial portions of the Software.
-//
-//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-//  THE SOFTWARE.
-//
+
 import UIKit
 
 /*:
  # In-Out Parameters
  */
 
+var num1 = 12
+var num2 = 34
+//파라미터는 임시 상수
+func swapNumber(_ a: Int, with b: Int){
+    var tmp = a
+//    a = b
+//    b = tmp
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+swapNumber(num1, with: num2)
 
 /*:
  ## Syntax
@@ -46,4 +22,43 @@ import UIKit
  ![inout-call](inout-call.png)
  */
 
+func swapNumbers(_ a: inout Int, with b: inout Int){ // defaultValue 설정을 할 수 없음
+    var tmp = a
+    a = b
+    b = tmp
+}
+num1
+num2
+swapNumbers(&num1, with: &num2)  //pointer..?
+num1
+num2
 
+let a = 12
+let b = 34
+//swapNumbers(&a, with: &b) // -> immutable x
+//swapNumbers(&12, with: &23) // -> literal
+//func sum (of nums: inout Int...){ // 가변 파라미터 사용 불가능 
+//
+//}
+
+
+
+
+//FunctionNotation -> 함수 표기법
+
+//functionName(label:)
+//functionName(label:label:)
+//functionName
+func sayHello(){
+    print("sayHello")
+}
+//-> sayHello
+func sayHello(to name: String){
+    print("hello \(name)");
+}
+// -> sayHello(to:) argument를 적지 않는다.
+
+func sayHello(_ name: String){
+    print("hello \(name)")
+}
+// -> sayHello(_:)
