@@ -1,33 +1,35 @@
-//
-//  Copyright (c) 2018 KxCoding <kky0317@gmail.com>
-//
-//  Permission is hereby granted, free of charge, to any person obtaining a copy
-//  of this software and associated documentation files (the "Software"), to deal
-//  in the Software without restriction, including without limitation the rights
-//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-//  copies of the Software, and to permit persons to whom the Software is
-//  furnished to do so, subject to the following conditions:
-//
-//  The above copyright notice and this permission notice shall be included in
-//  all copies or substantial portions of the Software.
-//
-//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-//  THE SOFTWARE.
-//
 import UIKit
 
 /*:
  # Capturing Values
  */
 
+/**
+ 클로저에서 값을 캡쳐하기
+
+ global function 값 캡쳐 X
+ nested function은 자신을 포함하고 있는 함수 바디의 값 캡쳐
+ 
+ 클로저 표현식으로 쓴 클로저는 클로저 외부의 값을 캡쳐
+ 
+ obj-c : 값을 복사하는 식으로 캡쳐 -> Deep Clone
+ swift : 참조를 캡쳐 -> Swallow Clone
+ */
 
 
+var num = 0;
 
+let c = {
+    //obj-c => num에 영향을 주지 않는다.
+    //check point #2에서는 0이 될 것
+    
+    //swft => num의 참조 가져오기에 값이 변경됨
+    num += 1;
+    print("check Point #1: \(num)")
+}
+c();
+
+print("check point #2: \(num)")
 
 
 

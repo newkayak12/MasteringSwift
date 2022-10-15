@@ -6,20 +6,16 @@ let products = [
    "MacBook Air", "MacBook Pro",
    "iMac", "iMac Pro", "Mac Pro", "Mac mini",
    "iPad Pro", "iPad", "iPad mini",
-   "iPhone Xs", "iPhone Xr", "iPhone 8", "iPhone 7",
+   "iPhone 14", "iPhone 14 Pro", "iPhone SE2", "iPhone SE",
    "AirPods",
-   "Apple Watch Series 4", "Apple Watch Nike+"
+   "Apple Watch Ultra", "Apple Watch Nike+"
 ]
 
+var proModels = products.filter({(name: String) -> Bool in return name.contains("Pro")})
+print(proModels)
 
-
-
-
-
-
-
-
-
+var sortedProModel = proModels.sorted(by: {(lhs: String, rhs: String ) -> Bool in return lhs.caseInsensitiveCompare(rhs) == .orderedAscending})
+print(sortedProModel)
 
 
 
