@@ -1,24 +1,4 @@
 //
-//  Copyright (c) 2018 KxCoding <kky0317@gmail.com>
-//
-//  Permission is hereby granted, free of charge, to any person obtaining a copy
-//  of this software and associated documentation files (the "Software"), to deal
-//  in the Software without restriction, including without limitation the rights
-//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-//  copies of the Software, and to permit persons to whom the Software is
-//  furnished to do so, subject to the following conditions:
-//
-//  The above copyright notice and this permission notice shall be included in
-//  all copies or substantial portions of the Software.
-//
-//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-//  THE SOFTWARE.
-//
 //: [Previous](@previous)
 
 import Foundation
@@ -27,16 +7,41 @@ import Foundation
  # Removing Substrings
  */
 
+var str = "Hello, Awesome Swift!!!"
+let lastCharIndex = str.index(before: str.endIndex)
+var removed  = str.remove(at: lastCharIndex)
+str
+removed
 
+removed = str.removeFirst()
+str
 
+removed = str.removeLast()
+str
 
+str.removeFirst(2)
+str
 
+str.removeLast(2)
+str
 
+if let range = str.range(of: "awesome", options: [.caseInsensitive]){
+    str.removeSubrange(range)
+}
 
+str.removeAll(keepingCapacity: true) //메모리 공간 유지
+str.removeAll() //파라미터 없이 호출하면 메모리 공간도 삭제
 
+str = "Hello, Awesome Swift!!!"
+var subStr = str.dropLast()  //subString 리턴 -> 원본 문자열 메모리 공유
+subStr = str.dropLast(3)
 
+subStr = str.dropFirst(5)
 
-
+subStr = str.drop(){
+    return $0 != ","
+}
+subStr
 
 
 

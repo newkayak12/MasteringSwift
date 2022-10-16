@@ -31,7 +31,14 @@ import Foundation
 
 
 
+let nums = [1,2,3]
+//let emptyArray = [] //Empty collection literal requires an explicit type
+let emptyArray: [Int] = []
+let emptyArray2 = Array<Int>()
+let emptyArray3 = [Int]()
 
+let zeroArray = [Int](repeating: 0, count: 10)
+zeroArray
 
 
 
@@ -45,6 +52,10 @@ import Foundation
  ## Inspecting an Array
  */
 
+nums.count
+nums.count == 0
+nums.isEmpty
+emptyArray.isEmpty
 
 
 
@@ -59,7 +70,20 @@ import Foundation
 
 
 
+let fruits = ["Apple", "Banana", "Melon"]
+fruits[0]
+//subscript를 사용
+fruits[fruits.count - 1]
+fruits[0...1]
+fruits[..<3]
+fruits[fruits.startIndex]
+fruits[fruits.index(before: fruits.endIndex)]
+fruits.first //optional
+fruits.last //optional
 
+emptyArray.first
+emptyArray.last
+//emptyArray[0] //fataError: Index out of range
 
 
 
