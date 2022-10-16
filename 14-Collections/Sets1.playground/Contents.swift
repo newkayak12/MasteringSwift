@@ -1,24 +1,3 @@
-//
-//  Copyright (c) 2018 KxCoding <kky0317@gmail.com>
-//
-//  Permission is hereby granted, free of charge, to any person obtaining a copy
-//  of this software and associated documentation files (the "Software"), to deal
-//  in the Software without restriction, including without limitation the rights
-//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-//  copies of the Software, and to permit persons to whom the Software is
-//  furnished to do so, subject to the following conditions:
-//
-//  The above copyright notice and this permission notice shall be included in
-//  all copies or substantial portions of the Software.
-//
-//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-//  THE SOFTWARE.
-//
 import Foundation
 
 /*:
@@ -26,57 +5,99 @@ import Foundation
  ## Set Type
  ![set-type](set-type.png)
  */
+/**
+    set이 배열에 비해 빠른 이유는 Hashing을 하기 때문이다.
+ */
 
-
-
-
-
-
-
+let array = [1, 2, 2, 3, 3, 3]
+array.count
+let set: Set<Int> = [1 ,2 ,2 ,3 ,3 ,3]//-> let set: Set = 과 같이 자료형 생략은 가능
+set.count
 
 /*:
  ## Inspecting a Set
  */
 
-
-
-
-
-
-
-
+set.count
+set.isEmpty
 
 /*:
  ## Testing for Membership
  */
 
-
-
-
-
-
-
-
-
-
+set.contains(1)
 
 /*:
  ## Adding and Removing Elements
  */
 
+var words = Set<String>()
+let result = words.insert("Apple")
+print(result)
+let secondResult = words.insert("Apple")
+print(secondResult)
 
 
+var upsertResult = words.update(with:"Apple")
+upsertResult //결과가 나오면 update
+
+upsertResult = words.update(with: "Swift") //nil이 리턴되면 insert
+upsertResult
 
 
+var value = "Apple"
+value.hashValue
 
 
+upsertResult = words.update(with: value)
+upsertResult
+
+value = "Hello"
+value.hashValue
+
+upsertResult = words.update(with: value)
+upsertResult
+
+/** */
+struct SampleData: Hashable {
+    var hashValue: Int = 123
+    var data: String
+    init(_ data: String){
+        self.data = data
+    }
+    static func == (lhs:SampleData, rhs:SampleData) -> Bool {
+        return lhs.hashValue == rhs.hashValue
+    }
+}
+
+var sampleSet = Set<SampleData>()
+var data = SampleData("Swift")
+data.hashValue
+
+var r = sampleSet.insert(data)
+r.inserted
+r.memberAfterInsert
+sampleSet
 
 
+data.data = "Hello"
+data.hashValue
 
+r = sampleSet.insert(data)
+r.inserted
+r.memberAfterInsert
+sampleSet
 
+//해시값이 같으면 같은 것으로 인식 hashValue가 Key인 dictionary ??
+sampleSet.update(with: data)
+sampleSet
+/** */
 
+words.remove("Swift")//있는 대상이면 해당 대상의 값
+words
 
+words.remove("Ghost")// 존재하지 않는 대상이면 nil
+words
 
-
-
-
+words.removeAll()
+words

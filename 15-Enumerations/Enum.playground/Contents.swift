@@ -1,24 +1,3 @@
-//
-//  Copyright (c) 2018 KxCoding <kky0317@gmail.com>
-//
-//  Permission is hereby granted, free of charge, to any person obtaining a copy
-//  of this software and associated documentation files (the "Software"), to deal
-//  in the Software without restriction, including without limitation the rights
-//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-//  copies of the Software, and to permit persons to whom the Software is
-//  furnished to do so, subject to the following conditions:
-//
-//  The above copyright notice and this permission notice shall be included in
-//  all copies or substantial portions of the Software.
-//
-//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-//  THE SOFTWARE.
-//
 import UIKit
 
 /*:
@@ -26,22 +5,43 @@ import UIKit
  ![enum](enum.png)
  */
 
+let left = 0
+let center = 1
+let right = 2
 
 
+var alignment = center//대략적으로 이렇게 정렬한다고 해보자.
+//가독성 0점, 컨벤션 유지에 문제가 발생할 가능성이 굉장히 높음
 
 
+let left2 = "left"
+let center2 = "center"
+let right2 = "right"
 
+//이렇게 해도 문제가 생김
 
+var alignment2 = left2
 
-
+if alignment2 == "Left"{
+    //이러면 문제가 생김
+}
 
 /*:
  ## Syntax
  ![syntax](enum-syntax.png)
  */
 
+enum Alignment {
+    case left
+    case center
+    case right
+}
 
+var textAlignment = Alignment.center
 
+if textAlignment == .center{
+    
+}
 
 
 
