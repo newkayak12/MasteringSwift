@@ -1,29 +1,9 @@
-//
-//  Mastering Swift
-//  Copyright (c) KxCoding <help@kxcoding.com>
-//
-//  Permission is hereby granted, free of charge, to any person obtaining a copy
-//  of this software and associated documentation files (the "Software"), to deal
-//  in the Software without restriction, including without limitation the rights
-//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-//  copies of the Software, and to permit persons to whom the Software is
-//  furnished to do so, subject to the following conditions:
-//
-//  The above copyright notice and this permission notice shall be included in
-//  all copies or substantial portions of the Software.
-//
-//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-//  THE SOFTWARE.
-//
+
+import Foundation
 
 //: [Previous](@previous)
 
-import Foundation
+
 
 /*:
 # Property Wrapper
@@ -31,12 +11,38 @@ import Foundation
 
 
 struct PlayerSetting {
+    @UserDefaultsHelper(key: "initialSpeed", defaultValue: 1.0)
    var initialSpeed: Double
+    @UserDefaultsHelper(key: "supportGesture", defaultValue: true)
    var supportGesture: Bool
+    
+    func resetAll(){
+        _initialSpeed.reset() //PropertyWrapper 자체에 접근해야한다. _를 붙이면 PropertyWrapper에 접근할 수 있다.
+        _supportGesture.reset() //이름만으로 접근하면 실제 값에 접근한다.
+    }
 }
 
-
-var currentSetting = PlayerSetting(initialSpeed: 1.0, supportGesture: true)
+@propertyWrapper//컴파일러가 필요한 코드를 자동으로 추가해준다.
+struct UserDefaultsHelper<Value> {
+    let key: String
+    let defaultValue: Value
+    
+    var wrappedValue: Value{
+        get{  //값을 관리하는 방법을 바꾸려면 이 곳을 바꾸면 된다.
+            UserDefaults.standard.object(forKey: key) as? Value ?? defaultValue
+        }
+        set{
+            UserDefaults.standard.setValue(newValue, forKey: key)
+        }
+    }
+    func reset(){
+        UserDefaults.standard.setValue(defaultValue, forKey: key)
+    }
+    //access level이 private인 것을 해결하기 위해서
+    var projectedValue: Self {return self} //이름은 꼭 projectedValue로 해야한다.
+}
+//값을 읽고 쓰는 작업은 PropertyWrapper에 위임 따라서 직접 초기화하지 않음
+var currentSetting = PlayerSetting()
 
 currentSetting.initialSpeed
 currentSetting.initialSpeed = 1.5
@@ -46,7 +52,8 @@ currentSetting.supportGesture
 currentSetting.supportGesture = false
 currentSetting.supportGesture
 
-
+//currentSetting._init //타입 밖에서는 PropertyWrapper에 접근할 수 없다. (Private로 설정되어있음)
+currentSetting.$initialSpeed.reset() //projectedValue는 $으로 접근
 
 
 
