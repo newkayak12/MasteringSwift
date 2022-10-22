@@ -1,24 +1,3 @@
-//
-//  Copyright (c) 2018 KxCoding <kky0317@gmail.com>
-//
-//  Permission is hereby granted, free of charge, to any person obtaining a copy
-//  of this software and associated documentation files (the "Software"), to deal
-//  in the Software without restriction, including without limitation the rights
-//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-//  copies of the Software, and to permit persons to whom the Software is
-//  furnished to do so, subject to the following conditions:
-//
-//  The above copyright notice and this permission notice shall be included in
-//  all copies or substantial portions of the Software.
-//
-//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-//  THE SOFTWARE.
-//
 import UIKit
 
 /*:
@@ -27,10 +6,37 @@ import UIKit
  */
 
 
+enum Alignment: Int {
+    case left //0
+    case right //1 // 값을 지정하면 자동으로 값이 늘되, 이전 값을 기준으로 +1 한다.
+    case center //2
+}
+Alignment.center.rawValue
+Alignment.right.rawValue
+Alignment.left.rawValue
+
+//Alignment.center.rawValue = 10 //immutable
+
+Alignment(rawValue: 0)//rawValue로 역으로 가져올 수도 있다.
+Alignment(rawValue: 100)//없는 값은  Nil을 반환한다.
 
 
+enum Weekday: String {
+    case sunday
+    case monday
+    case tuesday
+    case wednesday
+    case thursday
+    case friday
+    case saturday
+}
 
+Weekday.sunday.rawValue//원시 값의 자료형을 문자열로 선언하고 원시값을 생략하면 case 이름이 원시 값으로 정해진다.
 
+enum ControlChar: Character {
+    case tab = "\t"//Character이기 때문에 문자열은 불가
+    case newLine = "\n"
+}
 
 
 
