@@ -1,24 +1,3 @@
-//
-//  Copyright (c) 2018 KxCoding <kky0317@gmail.com>
-//
-//  Permission is hereby granted, free of charge, to any person obtaining a copy
-//  of this software and associated documentation files (the "Software"), to deal
-//  in the Software without restriction, including without limitation the rights
-//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-//  copies of the Software, and to permit persons to whom the Software is
-//  furnished to do so, subject to the following conditions:
-//
-//  The above copyright notice and this permission notice shall be included in
-//  all copies or substantial portions of the Software.
-//
-//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-//  THE SOFTWARE.
-//
 import UIKit
 
 /*:
@@ -28,18 +7,36 @@ import UIKit
 
 
 class Person {
-   var name: String
-   var yearOfBirth: Int
+    var name: String
+    var yearOfBirth: Int
+    var age: Int {
+        get {
+            let calendar = Calendar.current
+            let now = Date()
+            let year = calendar.component(.year, from: now)
+            return year - yearOfBirth
+        }
+//        이렇게 set이 없으면 읽기 전용이 된다.
+//        set {
+//            let calendar = Calendar.current
+//            let now = Date()
+//            let year = calendar.component(.year, from: now)
+//            yearOfBirth = year - newValue//age라는 속성으로 들어오면 set블록에서는 newValue로 사용할 수 있다.
+//        }
+    }
 
-   init(name: String, year: Int) {
+    init(name: String, year: Int) {
       self.name = name
       self.yearOfBirth = year
-   }
+    }
 }
 
 
+let p = Person(name: "John Doe", year: 2002)
+p.age
 
-
+//p.age = 50
+p.yearOfBirth
 
 
 
@@ -56,6 +53,25 @@ class Person {
  */
 
 
+
+class Person2 {
+    var name: String
+    var yearOfBirth: Int
+//    var age: Int = { //이러면 클로저를 저장하는 거겠죠
+    var age: Int {
+            let calendar = Calendar.current
+            let now = Date()
+            let year = calendar.component(.year, from: now)
+            return year - yearOfBirth
+        }
+//        이렇게 set이 없으면 읽기 전용이 된다.
+//          get없이 set만 있는 경우는 없다.
+
+    init(name: String, year: Int) {
+      self.name = name
+      self.yearOfBirth = year
+    }
+}
 
 
 

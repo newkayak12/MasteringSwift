@@ -1,24 +1,3 @@
-//
-//  Copyright (c) 2018 KxCoding <kky0317@gmail.com>
-//
-//  Permission is hereby granted, free of charge, to any person obtaining a copy
-//  of this software and associated documentation files (the "Software"), to deal
-//  in the Software without restriction, including without limitation the rights
-//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-//  copies of the Software, and to permit persons to whom the Software is
-//  furnished to do so, subject to the following conditions:
-//
-//  The above copyright notice and this permission notice shall be included in
-//  all copies or substantial portions of the Software.
-//
-//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-//  THE SOFTWARE.
-//
 import UIKit
 
 /*:
@@ -29,21 +8,43 @@ import UIKit
 class Size {
    var width = 0.0
    var height = 0.0
+    
+    func calcArea() -> Double {
+        self.width * self.height
+    }
+    
+    var area: Double {
+        self.calcArea()
+    }
+    
+    func update(width: Double, height: Double){
+        self.width = width
+        self.height = height
+    }
+    
+    func doSomething(){
+        //클로저에서 인스턴스 멤버에 접근하려면 self를 붙여 명시적으로 접근해서 캡쳐해야한다.
+        let c = { self.width * self.height}
+    }
+    
+    static let unit = ""
+    static func doSomething(){
+//        self.width// static에서 인스턴스 역시나 접근 불가능
+        self.unit //static은 가능
+//        unit //이렇게도 당연히 가능
+    }
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+struct SizeS {
+    var width = 0.0
+    var height = 0.0
+    
+    mutating func reset(value: Double) {
+//        width = value
+//        height = value
+        sef = SizeS(width: 12, height: 34)
+    }
+}
 
 
 
@@ -52,3 +53,5 @@ class Size {
  # super
  ![super](super.png)
  */
+
+

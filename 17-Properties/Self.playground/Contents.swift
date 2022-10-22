@@ -1,34 +1,22 @@
-//
-//  Mastering Swift
-//  Copyright (c) KxCoding <help@kxcoding.com>
-//
-//  Permission is hereby granted, free of charge, to any person obtaining a copy
-//  of this software and associated documentation files (the "Software"), to deal
-//  in the Software without restriction, including without limitation the rights
-//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-//  copies of the Software, and to permit persons to whom the Software is
-//  furnished to do so, subject to the following conditions:
-//
-//  The above copyright notice and this permission notice shall be included in
-//  all copies or substantial portions of the Software.
-//
-//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-//  THE SOFTWARE.
-//
 import UIKit
 
+/**
+ Self 속성과
+ Self 타입은 다르다.
+ 
+ */
 /*:
  # Self Type
  */
 
 extension Int {
-   static let zero: Int = 0
-
+//   static let zero: Int = 0
+    static let zero: Self = 0 //이렇게 Self로 지칭할 수 있다. Self는 현재 타입
+/**
+ Self는 현재 컨텍스트에서 타입 추론하기 때문에 범용적으로 사용할 수 있다.
+ 아래의 Double로 현재 코드를 모두 옮기려면 Int를 Double로 모두 바꿔야한다.
+ */
+    
    var zero: Int {
       return 0
    }
@@ -40,7 +28,20 @@ extension Int {
 
 
 extension Double {
+    static let zero: Self = 0
+/**
+이렇게 Self로 바꾸면 타입에 의존적이지 않게 된다.
+ */
+    
+   var zero: Self {
+      return 0
+   }
 
+   func makeZero() -> Self {
+      return Self()
+   }
 }
 
 
+Int.zero
+Double.zero

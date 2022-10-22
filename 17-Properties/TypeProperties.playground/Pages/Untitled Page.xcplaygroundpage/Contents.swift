@@ -1,25 +1,3 @@
-//
-//  Copyright (c) 2018 KxCoding <kky0317@gmail.com>
-//
-//  Permission is hereby granted, free of charge, to any person obtaining a copy
-//  of this software and associated documentation files (the "Software"), to deal
-//  in the Software without restriction, including without limitation the rights
-//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-//  copies of the Software, and to permit persons to whom the Software is
-//  furnished to do so, subject to the following conditions:
-//
-//  The above copyright notice and this permission notice shall be included in
-//  all copies or substantial portions of the Software.
-//
-//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-//  THE SOFTWARE.
-//
-
 import UIKit
 
 /*:
@@ -29,10 +7,16 @@ import UIKit
  ![type2](type2.png)
  */
 
+class Math {
+    static let pi = 3.141592
+}
 
 
-
-
+Math.pi //instance 속성이 아니다(static)
+/**
+ Type 속성은 기본적으로  lazy 접근할 때 초기화된다.
+ static으로 선언하면 subClass에서 오버라이드 금지
+ */
 
 
 /*:
@@ -44,10 +28,18 @@ import UIKit
 
 
 
+enum WeekDay: Int {
+    case sunday = 1, monday, tuesday, wednesday, thursday, friday, saturday
+    
+    static var today: WeekDay{
+        let cal = Calendar.current
+        let today = Date()
+        let weekday = cal.component(.weekday, from: today)
+        return WeekDay(rawValue: weekday)!
+    }
+}
 
-
-
-
+WeekDay.today
 
 
 
