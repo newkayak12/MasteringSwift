@@ -1,24 +1,3 @@
-//
-//  Copyright (c) 2018 KxCoding <kky0317@gmail.com>
-//
-//  Permission is hereby granted, free of charge, to any person obtaining a copy
-//  of this software and associated documentation files (the "Software"), to deal
-//  in the Software without restriction, including without limitation the rights
-//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-//  copies of the Software, and to permit persons to whom the Software is
-//  furnished to do so, subject to the following conditions:
-//
-//  The above copyright notice and this permission notice shall be included in
-//  all copies or substantial portions of the Software.
-//
-//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-//  THE SOFTWARE.
-//
 import UIKit
 
 /*:
@@ -26,3 +5,38 @@ import UIKit
  ![method](method.png)
  */
 
+
+// mutating -> 메소드에서 값을 변경해야한다는 의미(struct에서와 유사 ) 참조 형식에서도 사용 가능
+
+
+protocol Resettable{
+    mutating func reset() //값 타입에서 속성을 바꾼다면 mutating이 있어야 한다.
+    static func reset()
+}
+
+class SizeC: Resettable {
+    var width = 0.0
+    var height = 0.0
+    
+    func reset() { //mutating이 없어도 자유롭게 변경 가능
+        self.width = 0.0
+        self.height = 0.0
+    }
+    static /*class*/ func reset() {
+        print("static")
+    }
+}
+
+struct SizeS: Resettable {
+    var width = 0.0
+    var height = 0.0
+    
+    mutating func reset() {
+        self.width = 0.0
+        self.height = 0.0
+    }
+    
+    static func reset() {
+        print("static")
+    }
+}

@@ -1,24 +1,3 @@
-//
-//  Copyright (c) 2018 KxCoding <kky0317@gmail.com>
-//
-//  Permission is hereby granted, free of charge, to any person obtaining a copy
-//  of this software and associated documentation files (the "Software"), to deal
-//  in the Software without restriction, including without limitation the rights
-//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-//  copies of the Software, and to permit persons to whom the Software is
-//  furnished to do so, subject to the following conditions:
-//
-//  The above copyright notice and this permission notice shall be included in
-//  all copies or substantial portions of the Software.
-//
-//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-//  THE SOFTWARE.
-//
 import UIKit
 
 /*:
@@ -26,14 +5,58 @@ import UIKit
  ![property](property.png)
  */
 
+/**
+ protocol의 멤버는 항상 var 가변성과는 관련이 없다.
+ 가변성은 get/ set과 관련이 깊다.
+ 
+ */
 
+protocol Figure {
+    var name: String { get set } //최소 요구 사항이다.
+    static var number: Int {get set}
+}
 
+struct Rectangle: Figure {
+//    let name: String = "Rect" //set이 추가되면 최소 요구 사항을 충족시켜야 해서
+    var name: String = "Rect" //var로 바꿔야한다.
+    static var number: Int = 1
+}
 
+struct Triangle: Figure {
+    var name: String = "Triangle" //그래서 여기서 꼭 읽기 전용으로 선언할 필요는 없다.
+    static var number: Int = 1
+}
 
+struct Circle: Figure {
+    var name: String {
+        get{
+            return "Circle"
+        }
+        set{
+            
+        }
+    }
+    static var number: Int = 1
+}
 
-
-
-
+class CircleClass: Figure {
+    var name: String {
+        get{
+            return "Circle"
+        }
+        set{
+            self.name = newValue
+        }
+    }
+    class var number: Int {
+        get{
+            return 1
+        }
+        set{
+            
+        }
+    }//override를 허용하려면 class 키워드로 바꿔야 한다.
+}
 
 
 

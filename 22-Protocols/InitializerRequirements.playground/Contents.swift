@@ -1,24 +1,3 @@
-//
-//  Copyright (c) 2018 KxCoding <kky0317@gmail.com>
-//
-//  Permission is hereby granted, free of charge, to any person obtaining a copy
-//  of this software and associated documentation files (the "Software"), to deal
-//  in the Software without restriction, including without limitation the rights
-//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-//  copies of the Software, and to permit persons to whom the Software is
-//  furnished to do so, subject to the following conditions:
-//
-//  The above copyright notice and this permission notice shall be included in
-//  all copies or substantial portions of the Software.
-//
-//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-//  THE SOFTWARE.
-//
 import UIKit
 
 /*:
@@ -27,8 +6,55 @@ import UIKit
  */
 
 
+protocol Figure {
+    var name: String { get set }
+    init(n: String)
+}
 
+struct Rectangle: Figure {
+    var name: String
+    init(n: String) {
+        self.name = n
+    }
+}
+class Circle: Figure {
+    var name: String
+    
+    required init(n: String) { //꼭 구현해야하고, class는 상속을 고려하여 모든 요구 사항을 충족시켜야하므로 required로 선언해야함
+        self.name = n
+    }
+}
 
+final class Triangle: Figure { //상속이 불가능하므로 required가 필요 없음
+    var name: String
+    init(n: String){
+        self.name = n
+    }
+}
+//중복이다
+class Oval: Circle/*, Figure*/ {
+    var prop: Int
+    init(){
+        self.prop = 0
+        super.init(n: "Oval")
+    }
+    required convenience init(n: String) {
+        self.init()
+    }
+}
 
+protocol GrayScale {
+    init(white: Double)
+    init?(red: Double)
+}
 
-
+struct Color: GrayScale {
+//    init?(white: Double){ //Non-failable initializer requirement 'init(white:)' cannot be satisfied by a failable initializer ('init?')
+//    }
+    init!(white: Double){
+        //실패하면 Crash
+    }
+    init?(red: Double) {
+        //init(red: Double)도 문제 없음
+    }
+}
