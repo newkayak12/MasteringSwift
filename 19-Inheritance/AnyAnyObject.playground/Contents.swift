@@ -1,39 +1,31 @@
-//
-//  Copyright (c) 2018 KxCoding <kky0317@gmail.com>
-//
-//  Permission is hereby granted, free of charge, to any person obtaining a copy
-//  of this software and associated documentation files (the "Software"), to deal
-//  in the Software without restriction, including without limitation the rights
-//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-//  copies of the Software, and to permit persons to whom the Software is
-//  furnished to do so, subject to the following conditions:
-//
-//  The above copyright notice and this permission notice shall be included in
-//  all copies or substantial portions of the Software.
-//
-//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-//  THE SOFTWARE.
-//
 
 import Foundation
 
 /*:
  # Any, AnyObject
  */
+// Any는 값, 참조 형식
+var data = 1
+type(of: data)
+//data = 1.0
+
+var data2: Any = 1
+data2 = 1.0
+data2 = "String"
+data2 = [1,2,3]
+data2 = NSString()
+
+//AnyObject는 Reference type만
+//var obj: AnyObject = 123//값 형식 X
 
 
 
-
-
-
-
-
-
+//Any, AnyObject는 -> Type Erasing Wrapper
+if let str = data2 as? String { //NSString, String 상호 호환되는 형식 (Bridging이 가능)
+    print(str.count)
+} else if let list = data2 as? [Int]{
+    print(list)
+}
 
 
 
@@ -41,6 +33,16 @@ import Foundation
  # Type Casting Pattern
  */
 
+switch data2 {
+    case let str as String:
+        print("String \(str)")
+    case let list as [Int]:
+        print("Int Array \(list)")
+    case is Double:
+        print("Double")
+    default:
+        break;
+}
 
 
 

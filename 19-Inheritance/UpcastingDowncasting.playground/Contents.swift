@@ -1,24 +1,3 @@
-//
-//  Copyright (c) 2018 KxCoding <kky0317@gmail.com>
-//
-//  Permission is hereby granted, free of charge, to any person obtaining a copy
-//  of this software and associated documentation files (the "Software"), to deal
-//  in the Software without restriction, including without limitation the rights
-//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-//  copies of the Software, and to permit persons to whom the Software is
-//  furnished to do so, subject to the following conditions:
-//
-//  The above copyright notice and this permission notice shall be included in
-//  all copies or substantial portions of the Software.
-//
-//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-//  THE SOFTWARE.
-//
 import UIKit
 
 /*:
@@ -51,10 +30,31 @@ class Square: Rectangle {
    
 }
 
+let f = Figure(name: "Unknown")
+f.name
+
+let r = Rectangle(name: "Rectangle")
+r.width
+r.height
+r.name
+
+var s: Figure = Square(name: "Square")
+//upCasting
+//s.width
+//s.height
+s.name
+
+let downCastingS = s as! Square
+downCastingS.width
+downCastingS.name
+downCastingS.height
+
+let downCastingR = s as! Rectangle
 
 
+class Rhombus: Square {
+    var angle = 45.0
+}
 
-
-
-
-
+//let dr = s as! Rhombus
+//이런식의 다운 캐스팅 안됨
