@@ -1,52 +1,43 @@
-//
-//  Mastering Swift
-//  Copyright (c) KxCoding <help@kxcoding.com>
-//
-//  Permission is hereby granted, free of charge, to any person obtaining a copy
-//  of this software and associated documentation files (the "Software"), to deal
-//  in the Software without restriction, including without limitation the rights
-//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-//  copies of the Software, and to permit persons to whom the Software is
-//  furnished to do so, subject to the following conditions:
-//
-//  The above copyright notice and this permission notice shall be included in
-//  all copies or substantial portions of the Software.
-//
-//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-//  THE SOFTWARE.
-//
 
 import UIKit
 
 /*:
  # Equatable for Enumerations
  */
+/**
+  이 프로토콜을 채용하고 있어야
+ 
+    ==, !=으로 비교할 수 있다.
+ */
+
+
 
 enum Gender {
    case female
    case male
 }
 
+Gender.female == Gender.male
 
 struct MySize {
    let width: Double
    let height: Double
 }
 
-enum VideoInterface {
+
+enum VideoInterface: Equatable {
    case dvi(width: Int, height: Int)
    case hdmi(width: Int, height: Int, version: Double, audioEnabled: Bool)
    case displayPort(size: CGSize)
 }
 
+//연관값이라도 Equatable을 채용하고 있다면 자동으로 구현된다.
+//만약 다중이라면 Equatable을 채용하면 자동으로 추가된다.
+
 let a = VideoInterface.hdmi(width: 2560, height: 1440, version: 2.0, audioEnabled: true)
 let b = VideoInterface.displayPort(size: CGSize(width: 3840, height: 2160))
 
+a == b
 
 
 //: [Next](@next)

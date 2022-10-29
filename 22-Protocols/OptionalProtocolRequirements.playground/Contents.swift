@@ -1,37 +1,32 @@
-//
-//  Copyright (c) 2018 KxCoding <kky0317@gmail.com>
-//
-//  Permission is hereby granted, free of charge, to any person obtaining a copy
-//  of this software and associated documentation files (the "Software"), to deal
-//  in the Software without restriction, including without limitation the rights
-//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-//  copies of the Software, and to permit persons to whom the Software is
-//  furnished to do so, subject to the following conditions:
-//
-//  The above copyright notice and this permission notice shall be included in
-//  all copies or substantial portions of the Software.
-//
-//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-//  THE SOFTWARE.
-//
+
 import UIKit
 
 /*:
  # Optional Protocol Requirements
  ![optional](optional.png)
  */
+//@objc : 스위프트에서 작성한 코드를 Objective-c에서 사용할 수 있게 해준다.
+//클래스 전용이다. AnyObject 프로토콜을 자동으로 상속받기 떄문이다. (두 언어의 호환성을 위해서)
+//@objc optional은 프로토콜을 꼭 채택하지 않아도 되게끔 해준다.
 
-protocol Drawable {
-   var strokeWidth: Double { get set }
-   var strokeColor: UIColor { get set }
+@objc protocol Drawable {
+   @objc optional var strokeWidth: Double { get set }
+   @objc optional var strokeColor: UIColor { get set }
    func draw()
-   func reset()
+   @objc optional func reset()
 }
 
+class Rectangle: Drawable {
+    func draw() {
+            
+    }
+}
+
+let r: Drawable = Rectangle()
+r.draw();
+//@objc optional로 선언하면 Optional Chaining해야한다.
+var cl: UIColor? = r.strokeColor
+var wd: Double? = r.strokeWidth
+r.reset?()
 
 
