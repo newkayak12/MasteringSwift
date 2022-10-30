@@ -1,25 +1,3 @@
-//
-//  Copyright (c) 2018 KxCoding <kky0317@gmail.com>
-//
-//  Permission is hereby granted, free of charge, to any person obtaining a copy
-//  of this software and associated documentation files (the "Software"), to deal
-//  in the Software without restriction, including without limitation the rights
-//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-//  copies of the Software, and to permit persons to whom the Software is
-//  furnished to do so, subject to the following conditions:
-//
-//  The above copyright notice and this permission notice shall be included in
-//  all copies or substantial portions of the Software.
-//
-//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-//  THE SOFTWARE.
-//
-
 import Foundation
 
 /*:
@@ -49,13 +27,18 @@ class Car {
    }
 }
 
-var person: Person? = Person()
-var rentedCar: Car? = Car(model: "Porsche")
+var person: Person? = Person() //참조 카운트1
+var rentedCar: Car? = Car(model: "Porsche") //참조 카운트1
 
-person?.car = rentedCar
+person?.car = rentedCar //car 참조 카운트 2
+rentedCar?.lessee = person //person 참조 카운트 2
 
+person = nil //person 참조 카운트 1 감소, 현재 참조 카윤트 1
+rentedCar = nil //car 참조 카운트 1 감소, 현재 참조 카운트 1
 
-
+person = nil //이래도 car 안의 person을 제거할 수 없음
+rentedCar = nil //이래도 person 안의 car 제거할 수 없음
+//-> strong reference Cycle 문제
 
 
 

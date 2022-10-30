@@ -1,36 +1,26 @@
-//
-//  Copyright (c) 2018 KxCoding <kky0317@gmail.com>
-//
-//  Permission is hereby granted, free of charge, to any person obtaining a copy
-//  of this software and associated documentation files (the "Software"), to deal
-//  in the Software without restriction, including without limitation the rights
-//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-//  copies of the Software, and to permit persons to whom the Software is
-//  furnished to do so, subject to the following conditions:
-//
-//  The above copyright notice and this permission notice shall be included in
-//  all copies or substantial portions of the Software.
-//
-//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-//  THE SOFTWARE.
-//
 import UIKit
 
 /*:
  # Closure Capture List
+ */
+/**
+ 클로저가 인스턴스를 캡쳐하고 강한 참조로 가지고 있다면 참조 사이클 문제가 생긴다.
  */
 
 class Car {
    var totalDrivingDistance = 0.0
    var totalUsedGas = 0.0
    
-   lazy var gasMileage: () -> Double = {
-      return self.totalDrivingDistance / self.totalUsedGas
+   lazy var gasMileage: () -> Double = { [/*weak*/ unowned self] in
+       
+//      return self.totalDrivingDistance / self.totalUsedGas //self가 캡쳐됨 -> 클로저의 실행이 완료될 때까지 메모리 해제되지 않음
+       
+       //약한 참조는 Optional
+//      guard let strongSelf = self else { return 0.0 }
+//      return strongSelf.totalDrivingDistance / strongSelf.totalUsedGas //self가 캡쳐됨 -> 클로저의 실행이 완료될 때까지 메모리 해제되지 않음
+      
+       return self.totalDrivingDistance / self.totalUsedGas
+       
    }
    
    func drive() {
@@ -43,10 +33,12 @@ class Car {
    }
 }
 
+var myCar: Car? = Car()
+myCar?.drive()
+//myCar = nil//lazy를 호출하지 않아서 deinit됨
 
-
-
-
+myCar?.gasMileage() //클로저 실행하고 instance를 소유함
+myCar = nil //클로저가 강한 참조하기에 인스턴스가 정상적으로 소멸되지 않음
 
 
 
@@ -59,7 +51,17 @@ class Car {
  ## Value Type
  ![closurecapturelist-valuetype](closurecapturelist-valuetype.png)
  */
+/**
+ 클로저 캡처리스트를 사용하면 in을 생략할 수 없다. 클로저 바디와 구분하기 위해서
+ 
+ */
+var a = 0;
+var b = 0;
+let c = {[a] in print(a, b) } //값을 캡쳐하면 참조가 전달
 
+a = 1 //여기서 바꿨는데 참조가 캡쳐됨 //그러나 캡쳐 리스트로 선언하면 복사하여 가져옴
+b = 2
+c()
 
 
 
@@ -69,7 +71,7 @@ class Car {
  */
 
 
-
+//reference 타입이면 weak, unowned 키워드를 넣어야 한다.
 
 
 

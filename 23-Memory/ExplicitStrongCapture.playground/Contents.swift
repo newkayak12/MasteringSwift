@@ -1,25 +1,3 @@
-//
-//  Mastering Swift
-//  Copyright (c) KxCoding <help@kxcoding.com>
-//
-//  Permission is hereby granted, free of charge, to any person obtaining a copy
-//  of this software and associated documentation files (the "Software"), to deal
-//  in the Software without restriction, including without limitation the rights
-//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-//  copies of the Software, and to permit persons to whom the Software is
-//  furnished to do so, subject to the following conditions:
-//
-//  The above copyright notice and this permission notice shall be included in
-//  all copies or substantial portions of the Software.
-//
-//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-//  THE SOFTWARE.
-//
 import UIKit
 
 /*:
@@ -32,7 +10,13 @@ struct PersonValue {
    
    func doSomething() {
       DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-         print(name, age)
+         print(name, age) //이렇게 Strong Reference 문제가 없다면 self를 제거해도 된다.
+      }
+      DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+          print(self.name, self.age) //이렇게 Strong Reference 문제가 없다면 self를 제거해도 된다.
+      }
+      DispatchQueue.main.asyncAfter(deadline: .now() + 1) { [self] in ///이렇게 Explicit으로 하면 한 번만 사용해도 된다.
+         print(name, age) //이렇게 Strong Reference 문제가 없다면 self를 제거해도 된다.
       }
    }
 }
@@ -43,7 +27,10 @@ class PersonObject {
    
    func doSomething() {
       DispatchQueue.main.asyncAfter(deadline: .now() + 1) { 
-         print(name, age)
+          print(self.name, self.age) // 인스턴스에서는 반드시 명시해야한다.
+      }
+      DispatchQueue.main.asyncAfter(deadline: .now() + 1) { [self] in
+          print(name, age) // 인스턴스에서는 반드시 명시해야한다.
       }
    }
 }
