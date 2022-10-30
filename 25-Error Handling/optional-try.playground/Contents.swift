@@ -1,30 +1,13 @@
-//
-//  Copyright (c) 2018 KxCoding <kky0317@gmail.com>
-//
-//  Permission is hereby granted, free of charge, to any person obtaining a copy
-//  of this software and associated documentation files (the "Software"), to deal
-//  in the Software without restriction, including without limitation the rights
-//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-//  copies of the Software, and to permit persons to whom the Software is
-//  furnished to do so, subject to the following conditions:
-//
-//  The above copyright notice and this permission notice shall be included in
-//  all copies or substantial portions of the Software.
-//
-//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-//  THE SOFTWARE.
-//
 import UIKit
 
 /*:
  # optional try
  ![optional-try](optional-try.png)
  */
+//Optional Try -> nil
+//Forced Try -> crash
+
+
 
 enum DataParsingError: Error {
    case invalidType
@@ -44,5 +27,24 @@ func parsing(data: [String: Any]) throws {
    // Parsing
 }
 
+if let _ = try? parsing(data: [:]) {
+    print("success")
+} else {
+    print("fail")
+}
+
+do {
+    try parsing(data: [:])
+    print("success")
+} catch {
+    print("fail")
+}
+
+try? parsing(data: [:]) //결과가 상관 없다면
 
 
+
+try! parsing(data: ["name":"steve", "age":33])
+try! parsing(data: [:]) //__lldb_expr_140/optional-try.playground:48: Fatal error: 'try!' expression unexpectedly raised an error: __lldb_expr_138.DataParsingError.missingRequiredField("name")
+//CRASH!!!!!!!!
+//throws도 안되고 do-catch 도 안됨. 에러 없을 것이란 확신이 있을 때만 사용

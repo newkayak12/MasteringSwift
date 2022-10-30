@@ -15,7 +15,6 @@ protocol QueueCompatible {
 class IntegerQueue: QueueCompatible {
     typealias Element = Int
     func enqueue(value: Int) {
-        
     }
     func dequeue() -> Int? {
         return 0
