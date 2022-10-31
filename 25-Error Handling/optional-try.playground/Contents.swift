@@ -45,6 +45,6 @@ try? parsing(data: [:]) //결과가 상관 없다면
 
 
 try! parsing(data: ["name":"steve", "age":33])
-try! parsing(data: [:]) //__lldb_expr_140/optional-try.playground:48: Fatal error: 'try!' expression unexpectedly raised an error: __lldb_expr_138.DataParsingError.missingRequiredField("name")
+//try! parsing(data: [:]) //__lldb_expr_140/optional-try.playground:48: Fatal error: 'try!' expression unexpectedly raised an error: __lldb_expr_138.DataParsingError.missingRequiredField("name")
 //CRASH!!!!!!!!
 //throws도 안되고 do-catch 도 안됨. 에러 없을 것이란 확신이 있을 때만 사용
