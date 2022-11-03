@@ -1,25 +1,3 @@
-//
-//  Mastering Swift
-//  Copyright (c) KxCoding <help@kxcoding.com>
-//
-//  Permission is hereby granted, free of charge, to any person obtaining a copy
-//  of this software and associated documentation files (the "Software"), to deal
-//  in the Software without restriction, including without limitation the rights
-//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-//  copies of the Software, and to permit persons to whom the Software is
-//  furnished to do so, subject to the following conditions:
-//
-//  The above copyright notice and this permission notice shall be included in
-//  all copies or substantial portions of the Software.
-//
-//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-//  THE SOFTWARE.
-//
 import UIKit
 
 /*:
@@ -28,17 +6,28 @@ import UIKit
  ## Static Type & Dynamic Type
  */
 
-func checkType(of value: Any) {
-   let typeOfValue = type(of: value)
-   
+func checkType(of value: Any) { //compile 타임은 Any, Runtime은 String이 된다.
+    let typeOfValue: Any.Type = type(of: value)
+   //let typeOfValue: Any.Type
+   // 기존 타입 뒤에 .Type을 붙이면 메타 타입이 된다.
+    
+   // 프로토콜이면
+//    Equatable.Protocol
+/**
+    타입이 프로토콜이거나 프로토콜 컴포지션이면 Existentail MetaType
+    나머지는 Concrete MetaType
+ */
+    
    print("\(value) => \(typeOfValue)")
 }
 
 
-
+//런타임 중 사용하는 타입 -> dynamic
+//아래의 name 상수에서의 Type 같은 경우 -> static;
 let name = "Jane Doe"
 checkType(of: name)
 
 let age = 0
 checkType(of: age)
+
 

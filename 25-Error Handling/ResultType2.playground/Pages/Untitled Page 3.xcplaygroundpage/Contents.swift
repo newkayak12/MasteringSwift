@@ -28,5 +28,9 @@ let b = a.map { $0.isMultiple(of: 2) ? "evenNumber" : "oddNumber" }//success를 
 let c = a.flatMap { $0.isMultiple(of: 2) ? .success("evenNumber") : .success("oddNumber") }//success로 받아서 새로운 result
 
 //....
-let d = a.mapError(<#T##transform: (MyError) -> Error##(MyError) -> Error#>)
-//let e = a.flatMapError(<#T##transform: (MyError) -> Result<Int, Error>##(MyError) -> Result<Int, Error>#>)
+let d = a.mapError {
+    if case let _ as Error = $0 {
+        return  ValueError.evenNumber
+    }
+}
+//let e = a.flatMapError (<#T##transform: (MyError) -> Result<Int, Error>##(MyError) -> Result<Int, Error>#>)

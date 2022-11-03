@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7EE1CEDF2913EC6500E98810 /* BooksViewOld.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE1CEDE2913EC6500E98810 /* BooksViewOld.swift */; };
 		B40C730E27AAC20E0011CB03 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B40C730D27AAC20E0011CB03 /* AppDelegate.swift */; };
 		B40C731027AAC20E0011CB03 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B40C730F27AAC20E0011CB03 /* SceneDelegate.swift */; };
 		B40C731527AAC20E0011CB03 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B40C731327AAC20E0011CB03 /* Main.storyboard */; };
@@ -40,6 +41,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7EE1CEDD2913E52A00E98810 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		7EE1CEDE2913EC6500E98810 /* BooksViewOld.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksViewOld.swift; sourceTree = "<group>"; };
 		B40C730A27AAC20E0011CB03 /* Concurrency.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Concurrency.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B40C730D27AAC20E0011CB03 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B40C730F27AAC20E0011CB03 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -118,6 +121,7 @@
 				B40C731627AAC20F0011CB03 /* Assets.xcassets */,
 				B40C731827AAC20F0011CB03 /* LaunchScreen.storyboard */,
 				B40C731B27AAC20F0011CB03 /* Info.plist */,
+				7EE1CEDD2913E52A00E98810 /* README.md */,
 			);
 			path = Concurrency;
 			sourceTree = "<group>";
@@ -161,6 +165,7 @@
 				B40C733527AAE0F10011CB03 /* AsyncViewController.swift */,
 				B40C734127AAF26E0011CB03 /* Books.storyboard */,
 				B40C734327AAF27C0011CB03 /* BooksViewController.swift */,
+				7EE1CEDE2913EC6500E98810 /* BooksViewOld.swift */,
 			);
 			path = Async;
 			sourceTree = "<group>";
@@ -293,6 +298,7 @@
 				B40C733627AAE0F10011CB03 /* AsyncViewController.swift in Sources */,
 				B40C733E27AAE4740011CB03 /* DynamicBindingViewController.swift in Sources */,
 				B40C734427AAF27C0011CB03 /* BooksViewController.swift in Sources */,
+				7EE1CEDF2913EC6500E98810 /* BooksViewOld.swift in Sources */,
 				B40C731027AAC20E0011CB03 /* SceneDelegate.swift in Sources */,
 				B40C732A27AACA100011CB03 /* SyncViewController.swift in Sources */,
 				B477DA3127AE051300C4E4B0 /* UIImage+URL.swift in Sources */,
@@ -457,7 +463,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -486,7 +492,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
